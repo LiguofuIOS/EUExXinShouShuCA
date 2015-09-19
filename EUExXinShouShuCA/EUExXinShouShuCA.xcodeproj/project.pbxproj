@@ -1,0 +1,368 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F78804D41BAAABE7001DD1C7 /* EUExXinShouShuCA.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F78804D31BAAABE7001DD1C7 /* EUExXinShouShuCA.h */; };
+		F78804D61BAAABE7001DD1C7 /* EUExXinShouShuCA.m in Sources */ = {isa = PBXBuildFile; fileRef = F78804D51BAAABE7001DD1C7 /* EUExXinShouShuCA.m */; };
+		F78804F31BAAAE7C001DD1C7 /* libbjcaHandwrite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F78804F11BAAAE7C001DD1C7 /* libbjcaHandwrite.a */; };
+		F78804F61BAAB01E001DD1C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78804F51BAAB01E001DD1C7 /* UIKit.framework */; };
+		F78804F81BAAB026001DD1C7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78804F71BAAB026001DD1C7 /* CoreGraphics.framework */; };
+		F78804FA1BAAB02F001DD1C7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78804F91BAAB02F001DD1C7 /* CoreAudio.framework */; };
+		F78804FC1BAAB03D001DD1C7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78804FB1BAAB03D001DD1C7 /* AudioToolbox.framework */; };
+		F78804FE1BAAB043001DD1C7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78804FD1BAAB043001DD1C7 /* CoreLocation.framework */; };
+		F78805001BAAB04E001DD1C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78804FF1BAAB04E001DD1C7 /* Foundation.framework */; };
+		F78805021BAAB054001DD1C7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78805011BAAB054001DD1C7 /* AVFoundation.framework */; };
+		F78805041BAAB05E001DD1C7 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78805031BAAB05E001DD1C7 /* ImageIO.framework */; };
+		F78805061BAAB065001DD1C7 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78805051BAAB065001DD1C7 /* CoreImage.framework */; };
+		F78805081BAAB06D001DD1C7 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78805071BAAB06D001DD1C7 /* CoreMedia.framework */; };
+		F7D77AF51BABAA9400F7BAA2 /* UexXinShouShuSign.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D77AF41BABAA9400F7BAA2 /* UexXinShouShuSign.m */; };
+		F7D77AF81BABAFF700F7BAA2 /* UexXinShouShuCAUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D77AF71BABAFF700F7BAA2 /* UexXinShouShuCAUtility.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F78804CE1BAAABE7001DD1C7 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				F78804D41BAAABE7001DD1C7 /* EUExXinShouShuCA.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F78804D01BAAABE7001DD1C7 /* libuexXinShouShuCA.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libuexXinShouShuCA.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F78804D31BAAABE7001DD1C7 /* EUExXinShouShuCA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EUExXinShouShuCA.h; sourceTree = "<group>"; };
+		F78804D51BAAABE7001DD1C7 /* EUExXinShouShuCA.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EUExXinShouShuCA.m; sourceTree = "<group>"; };
+		F78804EB1BAAAC6B001DD1C7 /* EBrowserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBrowserView.h; sourceTree = "<group>"; };
+		F78804EC1BAAAC6B001DD1C7 /* EUExBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUExBase.h; sourceTree = "<group>"; };
+		F78804ED1BAAAC6B001DD1C7 /* EUExBaseDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUExBaseDefine.h; sourceTree = "<group>"; };
+		F78804EE1BAAAC6B001DD1C7 /* EUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUtility.h; sourceTree = "<group>"; };
+		F78804F11BAAAE7C001DD1C7 /* libbjcaHandwrite.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbjcaHandwrite.a; sourceTree = "<group>"; };
+		F78804F21BAAAE7C001DD1C7 /* SignBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SignBundle.bundle; sourceTree = "<group>"; };
+		F78804F41BAAAFF0001DD1C7 /* BjcaInterfaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BjcaInterfaceView.h; sourceTree = "<group>"; };
+		F78804F51BAAB01E001DD1C7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F78804F71BAAB026001DD1C7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F78804F91BAAB02F001DD1C7 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		F78804FB1BAAB03D001DD1C7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		F78804FD1BAAB043001DD1C7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F78804FF1BAAB04E001DD1C7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F78805011BAAB054001DD1C7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F78805031BAAB05E001DD1C7 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		F78805051BAAB065001DD1C7 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		F78805071BAAB06D001DD1C7 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		F7D77AF31BABAA9400F7BAA2 /* UexXinShouShuSign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UexXinShouShuSign.h; sourceTree = "<group>"; };
+		F7D77AF41BABAA9400F7BAA2 /* UexXinShouShuSign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UexXinShouShuSign.m; sourceTree = "<group>"; };
+		F7D77AF61BABAFF600F7BAA2 /* UexXinShouShuCAUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UexXinShouShuCAUtility.h; sourceTree = "<group>"; };
+		F7D77AF71BABAFF700F7BAA2 /* UexXinShouShuCAUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UexXinShouShuCAUtility.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F78804CD1BAAABE7001DD1C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F78805081BAAB06D001DD1C7 /* CoreMedia.framework in Frameworks */,
+				F78805061BAAB065001DD1C7 /* CoreImage.framework in Frameworks */,
+				F78805041BAAB05E001DD1C7 /* ImageIO.framework in Frameworks */,
+				F78805021BAAB054001DD1C7 /* AVFoundation.framework in Frameworks */,
+				F78805001BAAB04E001DD1C7 /* Foundation.framework in Frameworks */,
+				F78804FE1BAAB043001DD1C7 /* CoreLocation.framework in Frameworks */,
+				F78804FC1BAAB03D001DD1C7 /* AudioToolbox.framework in Frameworks */,
+				F78804FA1BAAB02F001DD1C7 /* CoreAudio.framework in Frameworks */,
+				F78804F81BAAB026001DD1C7 /* CoreGraphics.framework in Frameworks */,
+				F78804F61BAAB01E001DD1C7 /* UIKit.framework in Frameworks */,
+				F78804F31BAAAE7C001DD1C7 /* libbjcaHandwrite.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F78804C71BAAABE7001DD1C7 = {
+			isa = PBXGroup;
+			children = (
+				F78804D21BAAABE7001DD1C7 /* EUExXinShouShuCA */,
+				F78804D11BAAABE7001DD1C7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F78804D11BAAABE7001DD1C7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F78804D01BAAABE7001DD1C7 /* libuexXinShouShuCA.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F78804D21BAAABE7001DD1C7 /* EUExXinShouShuCA */ = {
+			isa = PBXGroup;
+			children = (
+				F78804EA1BAAAC6B001DD1C7 /* engineHeader */,
+				F78804EF1BAAAE7C001DD1C7 /* sourceCode */,
+				F78804D31BAAABE7001DD1C7 /* EUExXinShouShuCA.h */,
+				F78804D51BAAABE7001DD1C7 /* EUExXinShouShuCA.m */,
+				F78805091BAAB080001DD1C7 /* framework */,
+			);
+			path = EUExXinShouShuCA;
+			sourceTree = "<group>";
+		};
+		F78804EA1BAAAC6B001DD1C7 /* engineHeader */ = {
+			isa = PBXGroup;
+			children = (
+				F78804EB1BAAAC6B001DD1C7 /* EBrowserView.h */,
+				F78804EC1BAAAC6B001DD1C7 /* EUExBase.h */,
+				F78804ED1BAAAC6B001DD1C7 /* EUExBaseDefine.h */,
+				F78804EE1BAAAC6B001DD1C7 /* EUtility.h */,
+			);
+			path = engineHeader;
+			sourceTree = "<group>";
+		};
+		F78804EF1BAAAE7C001DD1C7 /* sourceCode */ = {
+			isa = PBXGroup;
+			children = (
+				F78804F01BAAAE7C001DD1C7 /* Lib */,
+				F7D77AF31BABAA9400F7BAA2 /* UexXinShouShuSign.h */,
+				F7D77AF41BABAA9400F7BAA2 /* UexXinShouShuSign.m */,
+				F7D77AF61BABAFF600F7BAA2 /* UexXinShouShuCAUtility.h */,
+				F7D77AF71BABAFF700F7BAA2 /* UexXinShouShuCAUtility.m */,
+			);
+			path = sourceCode;
+			sourceTree = "<group>";
+		};
+		F78804F01BAAAE7C001DD1C7 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				F78804F41BAAAFF0001DD1C7 /* BjcaInterfaceView.h */,
+				F78804F11BAAAE7C001DD1C7 /* libbjcaHandwrite.a */,
+				F78804F21BAAAE7C001DD1C7 /* SignBundle.bundle */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		F78805091BAAB080001DD1C7 /* framework */ = {
+			isa = PBXGroup;
+			children = (
+				F78805071BAAB06D001DD1C7 /* CoreMedia.framework */,
+				F78805051BAAB065001DD1C7 /* CoreImage.framework */,
+				F78805031BAAB05E001DD1C7 /* ImageIO.framework */,
+				F78805011BAAB054001DD1C7 /* AVFoundation.framework */,
+				F78804FF1BAAB04E001DD1C7 /* Foundation.framework */,
+				F78804FD1BAAB043001DD1C7 /* CoreLocation.framework */,
+				F78804FB1BAAB03D001DD1C7 /* AudioToolbox.framework */,
+				F78804F91BAAB02F001DD1C7 /* CoreAudio.framework */,
+				F78804F71BAAB026001DD1C7 /* CoreGraphics.framework */,
+				F78804F51BAAB01E001DD1C7 /* UIKit.framework */,
+			);
+			name = framework;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F78804CF1BAAABE7001DD1C7 /* EUExXinShouShuCA */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F78804E41BAAABE7001DD1C7 /* Build configuration list for PBXNativeTarget "EUExXinShouShuCA" */;
+			buildPhases = (
+				F78804CC1BAAABE7001DD1C7 /* Sources */,
+				F78804CD1BAAABE7001DD1C7 /* Frameworks */,
+				F78804CE1BAAABE7001DD1C7 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EUExXinShouShuCA;
+			productName = EUExXinShouShuCA;
+			productReference = F78804D01BAAABE7001DD1C7 /* libuexXinShouShuCA.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F78804C81BAAABE7001DD1C7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = liguofu;
+				TargetAttributes = {
+					F78804CF1BAAABE7001DD1C7 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+				};
+			};
+			buildConfigurationList = F78804CB1BAAABE7001DD1C7 /* Build configuration list for PBXProject "EUExXinShouShuCA" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F78804C71BAAABE7001DD1C7;
+			productRefGroup = F78804D11BAAABE7001DD1C7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F78804CF1BAAABE7001DD1C7 /* EUExXinShouShuCA */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F78804CC1BAAABE7001DD1C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7D77AF51BABAA9400F7BAA2 /* UexXinShouShuSign.m in Sources */,
+				F78804D61BAAABE7001DD1C7 /* EUExXinShouShuCA.m in Sources */,
+				F7D77AF81BABAFF700F7BAA2 /* UexXinShouShuCAUtility.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F78804E21BAAABE7001DD1C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/uexXinShouShuCA";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = uexXinShouShuCA;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F78804E31BAAABE7001DD1C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/uexXinShouShuCA";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = uexXinShouShuCA;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F78804E51BAAABE7001DD1C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/uexXinShouShuCA";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EUExXinShouShuCA/sourceCode/Lib",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = uexXinShouShuCA;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F78804E61BAAABE7001DD1C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/uexXinShouShuCA";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EUExXinShouShuCA/sourceCode/Lib",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = uexXinShouShuCA;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F78804CB1BAAABE7001DD1C7 /* Build configuration list for PBXProject "EUExXinShouShuCA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F78804E21BAAABE7001DD1C7 /* Debug */,
+				F78804E31BAAABE7001DD1C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F78804E41BAAABE7001DD1C7 /* Build configuration list for PBXNativeTarget "EUExXinShouShuCA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F78804E51BAAABE7001DD1C7 /* Debug */,
+				F78804E61BAAABE7001DD1C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F78804C81BAAABE7001DD1C7 /* Project object */;
+}

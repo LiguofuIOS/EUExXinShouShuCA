@@ -1,0 +1,321 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 1.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+.style1{ border-width: 1px; border-style: solid; border-color:black; }
+.style2{ border-style:solid;border-bottom-style:hidden;border-right-style:hidden;  }
+.style3{ border-style:solid;border-bottom-style:hidden; }
+.style4{ border-style:solid;border-right-style:hidden; }
+.style5{ border-style:solid;border-left-style:hidden;border-right-style:hidden; }
+.style6{ border-right-style:hidden; }
+.sizeClass{size:5;}
+</style>
+<script src="anysignInterface.js" type="text/javascript" charset="utf-8"></script>
+<script src="ios.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    function read()
+    {
+        document.getElementById("beibaoren").innerHTML = getCookie("beibaoren");
+        document.getElementById("codeId").innerHTML = getCookie("codeId");
+        /*
+         var tmpImg = window.opener.imgTmp;
+         
+         var div = document.getElementById("pic");
+         for(var i=0;i<tmpImg.length;i++){
+         var timenow = new Date().getTime();
+         var image = document.createElement("img");
+         image.name ="test";
+         image.id="testImage"+timenow;
+         //image.style.cssText="width:50%;";
+         //image.width="300";
+         //image.height="100";
+         image.src="data:image/jpg;base64,"+tmpImg[i];
+         div.appendChild(image);
+         }
+         
+         //document.getElementById("pic").innerHTML = "&nbsp;<img id=\"photoId\" src=\"data:image/jpeg;base64,"+ tmpImg+"\"/>  ";
+         */
+    }
+function getCookie(c_name)
+{
+    var c_value = document.cookie;
+    
+    var c_start = c_value.indexOf(" " + c_name + "=");
+    if (c_start == -1){
+        c_start = c_value.indexOf(c_name + "=");
+    }
+    if (c_start == -1) {
+        c_value = null;
+    }
+    else {
+        c_start = c_value.indexOf("=", c_start) + 1;
+        var c_end = c_value.indexOf(";", c_start);
+        if (c_end == -1) {
+            c_end = c_value.length;
+        }
+        c_value = unescape(c_value.substring(c_start,c_end));
+    }
+    return c_value;
+}
+function testAnySign()
+{
+    //read();
+    var res;
+    var callback = function(context_id,context_type,val)
+    {
+        if(context_type == 1)
+        {
+            
+            
+            document.getElementById("xss_20").src = "data:image/gif;base64," + val;
+        }
+        else if(context_type == CALLBACK_TYPE_ON_PICTURE_TAKEN)
+        
+        {
+            //  alert(context_id);
+            //var a = document.getElementById(context_id).src;
+            
+            document.getElementById(""+context_id).src = "data:image/gif;base64," + val;
+        }
+        else if(context_type == 99)
+        {
+            // alert("2222");
+            encodeSS= val;
+            // alert("123");
+            //  alert(encodeSS);
+        }
+        //setAlertTitle();
+        // alert("收到浏览器回调：" + "context_id：" + context_id + " context_type：" + context_type + " value：" + val);
+    };//测试回调，将回调数据显示
+    
+    res = initAnySignApi(callback);
+    if(!res)
+    alert("init error");
+
+    
+    onclickSetTable("bjca","1110#1111");
+    var sConfig = new SignatureConfig();
+    
+    /*  sConfig.penColor = "#ff000000";
+     sConfig.title = "请小红签署";
+     sConfig.titleSpanFromOffset = 1;
+     sConfig.titleSpanToOffset = 2;
+     alert("sss");
+     */
+    res = addSignatureObjAdvanced(20,sConfig);
+    
+    res = addSignatureObjAdvanced(21,sConfig);
+    var sConfig1 = new SignatureConfig();
+    sConfig1.singleWidth = 800;
+    sConfig1.singleHeight = 50;
+    res = addSignatureObjAdvanced(30,sConfig1);
+    
+    if(!res)
+    alert("addSignatureObj 20 error");
+    
+    
+    var config = new PhotoConfig();
+    config.set(150,100,true,true);
+    
+    config.openFromGallery = false;
+    var photoIds = new Array;
+    
+    for(var i=0; i<6; i++)//50~149
+    {
+        photoIds[i] = i + 50;
+    }
+    //photoIds[0] = 50;
+    //photoIds[1] = 51;
+    res = addPhotoObj(photoIds,config);
+    if(!res)
+    alert("addPhotoObj 501 error");
+    
+    
+    
+    
+    
+    
+    if(!res)
+    alert("addPhotoObj 502 error");
+    
+    //添加录音
+    /*var config = new MediaConfig();
+     
+     var mediaIds = new Array;
+     
+     mediaIds[0] = 70;
+     
+     res = addMediaObj(mediaIds,config);
+     if(!res)
+     alert("addMediaObj 501 error");*/
+    
+    
+    //注册取证对象
+    var mediaConfig = new MediaConfig();
+    var medias = new Array;
+    medias[0] = 52;
+    res = addMediaObj(medias,mediaConfig);
+    if(!res)
+    alert("addMediaObj 52 error");
+    
+    commitConfig();
+    
+    //showSignatureDialog(20);
+    // var ary = new Array;
+    // ary[0] = 50;
+    
+    //res = picturePreview(ary);
+    // alert("picturePreview res:" + res);
+    // takePicture(50);
+}
+
+function goto_xuke(){
+    var myname = getCookie("beibaoren");
+    var myId = getCookie("codeId");
+    
+    SubmitSignData(myname,myId);
+    //window.location.href="xuke.html";
+}
+function onclickEvent_20(a)
+{
+    //document.getElementById("xss_20").src = a;
+    // alert("20");
+    showSignatureDialog(a);
+}
+
+function onclickEvent(name,id)
+{
+    document.getElementById("beibaoren").innerHTML = name;
+    document.getElementById("codeId").innerHTML = id;
+}
+</script>
+
+</head>
+<body topmargin="0"  onload="testAnySign();">
+<div style="text-align:center;"> <span style="font-size:18pt;">北京互联网银行开户协议</span> </div>
+<br><br>
+<div style="text-align:right;">工单号:<span style="color:#F00">110212011001</span> </div>
+<table border="0" width="100%" style="table-layout:fixed;">
+  <tbody>
+    <tr style="line-height:30px;">
+      <td><div>甲方：北京互联网银行股份有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;乙方：申请人</div>
+        <div>第一条 乙方申请各类服务时，应按照《个人存款账户实名制规定》，向银行出示本人有效身份证件，并以实名办理各项业务，代理他人开户的，还需出具代理人有效身份证件。</div>
+        <div>第二条 乙方保证提供的资料真实、准确、完整、有效，当有关资料发生变化时，乙方须及时到甲方办理更改手续。对于乙方未提供真实、准确、完整、有效的资料，或更改、通知不及时造成不能正常办理业务等风险和损失的，由乙方自行承担责任。</div>
+        <div>第三条 乙方办理通存通兑或结算功能的账户，必须设置交易密码。乙方收到预留密码的账户时应当面确认资金凭证（存折/存单/借记卡/债券托管账户卡）完整无损，并及时更改密码。乙方应妥善保管资金凭证和各类交易密码，以乙方资金凭证和密码所进行的一切交易，甲方均视为乙方（意愿）亲自办理。 </div>
+        <div>第四条 存款凭证遗失、被盗，或交易密码泄露、被改、遗忘时，乙方应尽快向甲方申请挂失，若挂失前或挂失失效后资金被他人盗用、支取，由乙方自行承担可能造成的一切损失，甲方不承担责任。密码挂失不允许代办。 </div>
+        <div>第五条 大额现金的存取按照监管部门有关规定办理。</div>
+        <div>第六条 储蓄存单、存折未经签发银行核押，不得出质。</div>
+        <div>第七条 乙方自愿在甲方开立个人账户：并向甲方申请办理资金账户相关的结算、综合服务业务，乙方了解并同意以下做法：</div>
+        <div>（一）甲方根据《储蓄管理条例》、《人民币银行结算账户管理办法》等监管规定及业务规章提供账户服务： </div>
+        <div>1、甲方按照“存款自愿、取款自由、存款有息、为储户保密”的原则为乙方服务。</div>
+        <div>2、甲方及时、准确地办理乙方的资金收付业务，为乙方提供账务核对、挂失、临时挂失和更改密码等服务。</div>
+        <div>3、储蓄账户只具有现金存取款和本人账户之间的转账功能，结算账户具有转账、汇兑、代发工资、代扣款、投资支付等结算功能。开立借记卡（含关联活期账户）账户、信用卡账户和个人支票账户视为个人结算账户。借记卡销卡视同个人结算账户销户，与借记卡关联的活期账户自动转为储蓄账户。 </div>
+        <div>4、申请人民币七天通知存款约定转存服务后，表示乙方已阅读并同意委托甲方按《人民币七天通知存款约定转存服务客户须知》中的条款办理业务。 </div>
+        <div>（二）甲方根据中国人民银行《商业银行柜台记账式国债交易管理办法》和中央国债登记结算有限责任公司（以下简称中央结算公司）《债券柜台交易结算业务规则》、《北京互联网银行柜台记账式国债交易（零售业务）实施细则（试行）》等规定提供柜台记账式债券交易服务：</div>
+        <div>1、甲方以买卖双边报价、自营方式与乙方进行债券买卖；甲方根据市场变化随时调整公布债券买卖价格，风险由乙方自己承担。办理柜台债券申购、买卖交易时，乙方应认真审核《买入申请书》或《卖出申请书》打印的记录，同意成交须签名确认，签名后该交易即不可撤消。 </div>
+        <div>2、甲方为乙方开立债券托管账户，办理债券托管、结算及相关业务；通过营业网点发售债券和代理兑付债券本息；办理债券质押登记（暂未开办）；办理债券托管账户挂失业务；办理更改客户资料业务。</div>
+        <div>3、乙方对甲方提供的中央结算公司的复核系统初始查询密码应及时进行修改。遗忘密码时，应及时到开办柜台债券交易的网点办理申请恢复初始查询密码手续，办理时乙方须提供本人身份证件、借记卡和托管账号。 </div>
+        <div>4、甲方为乙方办理转托管业务时，所涉及的两个托管账户持有人必须同为乙方，身份证件必须一致。</div>
+        <div>5、甲方为乙方办理非交易过户业务时，乙方须提交有效身份证件、具有法律效力的协议、赠予公证书或合法继承证明等，甲方依法办理。</div>
+        <div>6、甲方在规定的柜台债券交易营业时间内为乙方办理债券交易业务。办理债券的申购、上市流通、转托管等各种业务类型日期，按中国人民银行和中央结算公司公告执行。 </div>
+        <div>7、甲方如出现某种债券临时不足，可暂停该债券卖出交易，但补充债券额度后，应尽快恢复卖出交易，无正当理由不得暂停交易。</div>
+        <div>8、人民法院、人民检察院、公安机关和国家安全等部门依法冻结乙方托管账户、资金账户，乙方须待禁令解除后，方可继续使用。</div>
+        <div>（三）甲方根据财政部、中国人民银行《储蓄国债（电子式）代销试点管理办法（试行）》和中央国债登记结算有限责任公司《储蓄国债（电子式）代销试点业务实施细则（试行）》等规定提供储蓄国债（电子式）交易服务 </div>
+        <div>1、甲方为乙方开立储蓄国债托管账户，提供债券托管账户卡，并办理债券托管、结算及相关业务；乙方应指定一个本人在北京互联网银行开立的个人结算账户（包括借记卡、凭密码支取的普通活期存折或活期一本通存折）作为资金账户。</div>
+        <div>2、甲方通过乙方指定的资金账户为乙方办理与储蓄国债相关的资金清算；</div>
+        <div>3、甲方代理销售储蓄国债；为乙方办理储蓄国债提前兑付；办理固定利率变动期限储蓄国债终止投资；办理储蓄国债的付息和还本付息。</div>
+        <div>4、甲方提供储蓄国债托管账户本，详细记录乙方办理的各项储蓄国债业务，并提供该托管账户本的挂失、补登服务；储蓄国债托管账户本不作为债权凭证及存取款凭证，仅供乙方查询、核对储蓄国债二级托管账户账务时使用。 </div>
+        <div>5、甲方为乙方办理非交易过户（法院扣划、抵债、赠予、遗产继承等）、更改客户资料、开立财产证明、打印国债业务对账单、查询各类国债信息等服务时，须持转出方资金账户及密码到甲方办理。此外，乙方办理非交易过户时，还应提交非交易过户双方的有效身份证件、托管账户号，以及具有法律效力的协议、赠予公证书或合法继承证明等材料。</div>
+        <div>（四）甲方根据中华人民共和国有关法律法规、《北京互联网银行股份有限公司电子银行章程》、相关业务规则及通行的金融惯例提供电子银行服务：</div>
+        <div>1、“电子银行”服务：指客户通过网上银行、电话银行等网络或电子终端渠道所享受到的北京互联网银行为客户提供的各项金融服务。</div>
+        <div>“客户安全证书”：指用于存放客户身份标识，并对客户发送的网上银行敏感信息进行数字签名的电子文件。</div>
+        <div>“动态口令”：又称动态密码，是在客户登录时依据客户私人身份信息并引入不确定因素产生随机变化的口令，使客户每次使用的密码具有动态变化性和不可预知性。</div>
+        <div>电子银行“交易指令”：指乙方以注册卡号、用户名、客户安全证书或动态口令以及相应密码，通过电子银行渠道向北京互联网银行发出的查询、转账、投资、理财和支付结算等请求。</div>
+        <div>2、乙方自愿申请注册甲方电子银行，完全接受《北京互联网银行股份有限公司电子银行章程》并遵守甲方相关业务规则和业务规定。乙方在注册期内有权办理个人电子银行注销手续。甲方为乙方提供电子银行的注册、注销、变更等手续。甲方有权根据乙方资信情况，决定是否受理乙方的注册申请，经甲方审核通过同意后，乙方有权根据注册项目享受相应的电子银行服务。对因乙方违反本协议或其他甲方相关章程、业务规则、业务规定等而造成的损失和后果，由乙方承担全部责任。 </div>
+        <div>3、甲方为乙方提供账户查询、转账、投资、理财、支付结算等服务项目，具体内容以甲方电子银行所提供的功能选项为准。甲方提供的服务受乙方开立电子银行服务的卡（账户）状态的制约，如该卡（账户）因挂失、止付等原因不能使用，相关服务自动中止。乙方卡（账户）状态恢复正常时，甲方重新提供相应服务。</div>
+        <div>4、乙方应通过甲方所提供的合法途径办理电子银行业务，乙方办理网上银行业务时应直接登录甲方网站，而不要通过邮件或其他网站提供的链接登录。甲方有权对本行提供的电子银行登录途径进行变更，甲方将通过适当方式提前公告，不再逐一通知客户。 </div>
+        <div>乙方使用甲方电子银行时，必须妥善保管用户名、各类相关密码、银行卡号、存折账号、动态口令及客户安全证书等信息，并对通过上述信息完成的电子银行交易负责，以乙方上述信息所进行的一切交易，甲方均视为乙方（意愿）亲自办理。</div>
+        <div>5、甲方有义务为乙方提供电子银行操作的必要咨询，受理相关建议或意见，但对于乙方关于电子设备使用基础知识和技巧的咨询可不做回答。</div>
+        <div>6、甲方应当保障电子银行系统设施设备以及安全控制设施设备的安全，对电子银行的重要设施设备和数据采取适当保护措施。乙方已完全了解甲方提供的电子银行服务是甲方应用网络和电子终端方式提供的金融服务，乙方通过网络和电子终端使用电子银行服务可能会出现信息传送中断、停顿、延误、传送数据错误或存在一定的时差等情况，在甲方履行上述合理义务的前提下，一切在甲方控制以外有关系统、通讯、设备故障引致的消息谬误、讯息未能适时传达，或断电、停电、病毒爆发或交易中偶发因素产生的不可预测、不可控制等因素，以及不可抗力原因造成乙方损失时，甲方不承担任何经济和法律责任。因上述情况造成电子银行服务未被送达无法办理或者被取消、暂停或终止，乙方应自行采取其它途径完成相关交易。 </div>
+        <div>7、甲方有义务及时准确执行乙方的交易指令。交易指令一经确认，乙方不得要求变更或撤销，所产生的电子信息记录均为甲方处理电子银行业务的有效凭据。乙方的交易情况，均以甲方电脑记录的资料为准，双方均承认甲方电脑记录资料的真实性、准确性和合法性。 </div>
+        <div>8、甲方有权规定、更改电子银行日常服务时间，以及所提供服务或交易的每日截止时间，在每日截止时间之后收到的交易指令，甲方将视为下一营业日收到。在中华人民共和国（除香港、澳门、台湾地区）开户并申请使用电子银行服务的每日截止时间以北京时间为准。乙方应在甲方规定的服务时间内使用电子银行服务。甲方有权规定并调整电子银行相关服务的单笔及每日累计交易金额。上述服务时间、截止时间及交易限额的调整，甲方将通过适当方式公告，不再逐一通知客户。</div>
+        <div>9、甲方有权基于预防电子银行欺诈目的或外部有权机构的要求监控乙方通过甲方电子银行从事的操作以及交易。</div>
+        <div>10、属甲方工作差错并导致支付结算处理延误对乙方造成损失的，甲方有责任按中国人民银行《支付结算办法》等有关规定赔偿。甲方因以下情况没有正确执行乙方提交的交易指令，不承担任何责任： </div>
+        <div>1） 乙方账户余额或信用额度不足；</div>
+        <div>2） 乙方账户内资金被法定有权机构冻结或扣划；</div>
+        <div>3） 乙方的行为出于欺诈等恶意目的；</div>
+        <div>4） 乙方发出的交易指令缺乏必要的交易信息，或甲方接收到的指令信息不明、存在乱码、不完整等情况；</div>
+        <div>5） 乙方未能正确依据甲方电子银行服务的各类业务规则、提示、服务说明进行操作；</div>
+        <div>6） 指令的执行会违反中国法律、法规或者监管当局的要求； </div>
+        <div>7）不可抗力或其他不可归因于甲方的原因。</div>
+        <div>11、乙方利用甲方网上银行进行外汇、黄金、国债、基金、证券等投资理财交易应同意与甲方在网上签署网上银行投资服务协议等相关协议。乙方应充分认识到通过电子银行渠道进行投资类业务的风险，并对其电子银行投资类交易活动产生的结果承担全部责任。 </div>
+        <div>12、为方便乙方的电子银行交易，甲方从第三方获取一些金融信息，并通过甲方网站和网上银行系统等提供给乙方，但对从第三方获取的任何信息的真实性、有效性和完整性甲方不承担责任。</div>
+        <div>（五）甲方根据与相关单位签订的合作协议，提供代缴费服务： </div>
+        <div>1、乙方授权甲方通过个人结算账户自动转账支付各类申请的缴费项目。</div>
+        <div>2、甲方在取得乙方授权书后，在相关单位认可的缴费期限内，根据相关单位提供的付费金额在乙方账户内扣缴相关费用。</div>
+        <div>3、同一账户如授权支付多项费用时，由甲方按收到收费单位扣款通知和内部工作流程的先后秩序决定扣款顺序。</div>
+        <div>4、乙方应在账户内保持足够的可用余额（可用余额=存款金额-未达账金额）以备支付，当账户余额不足，甲方不予扣款，由此产生的后果，由乙方自行负责。</div>
+        <div>5、凡处于冻结、止付、挂失、销卡等非正常状态的账户，甲方中止其自动扣款缴费业务。</div>
+        <div>6、乙方因个人情况变化，如地址变更、账户挂失、缴费信息变更、账号变更等，又未能及时终止或变更授权，造成自动扣款差错的，由乙方负全部责任。</div>
+        <div>7、乙方对自动扣账存在疑问的，应在一个月内向收费单位或甲方查询。</div>
+        <div>第八条 收费标准</div>
+        <div>（一）甲方收费标准按财政部、中国人民银行、银监会及北京互联网银行的有关规定执行。甲方有权按收费标准收取或自动扣划相关费用。对符合甲方小额账户收费标准的，甲方有权收取小额账户管理费。乙方填写申请表格并与甲方签订相关协议后，即表示接受该标准和收费方式，如乙方未按时支付或账户内余额不足以支付上述费用，甲方有权终止提供服务，并保留追究乙方责任的权利。 </div>
+        <div>（二）甲方有权对收费项目、收费标准、收费方式和收费周期进行调整或修改，并按规定，将上述调整和修改以适宜方式（网点公告、网站公告、媒体公告或其他方式）对外公告，不再逐一通知乙方。公告期满后，乙方办理各项业务须按调整或修改后的收费项目、标准、方式和周期支付费用。</div>
+        <div>（三）如乙方向甲方申请终止服务，则本协议第七条中相应服务的条款自申请生效之日起同时终止执行，甲方不退回乙方已支付的有关费用</div>
+        <div>第九条 对账及错误处理</div>
+        <div>（一）乙方应定期主动与甲方核对账务。乙方发生账务后应及时通过甲方提供的柜台、电话银行、网上银行、自助设备等设施核对账务，如有异议应及时向甲方提出。如果乙方从交易发生日起3个月内（以自然日计算）未对账户或交易信息向甲方提出疑问，则视为对交易记录无异议。涉及信用卡交易的则需于交易次月收妥信用卡对账单以做核对。 </div>
+        <div>（二）发生未登折业务时，账户实际金额及交易情况以甲方记账为准。甲方有权定期对未登折交易记录的打印信息做并笔处理，实际发生的未登折明细记录可至甲方柜台办理查询。</div>
+        <div>（三）乙方的债券托管账户是用于记载乙方所拥有的债券数额的账户，所载余额以中央结算公司复核后的账户余额为准，但乙方有确凿证据证明甲方账务有误的除外。</div>
+        <div>（四）乙方在确信本人电子银行交易指令错误发生后3个工作日内以书面方式通知甲方，并明确说明发生的可能原因、有关账号和交易金额等情况。甲方应在接到乙方通知之日起3个工作日内告知乙方调查结果。如甲方认为错误并未发生，应在调查结束后3个工作日内以书面方式告知乙方并做出解释。如甲方认为错误确已发生并系甲方原因，应在告知乙方调查结果后3个工作日内对错误加以纠正。如遇复杂情况，甲方应在上述期限内进行首次告知，并争取尽早完成相关处理工作。 </div>
+        <div>第十条 销户或业务终止</div>
+        <div>（一）正在办理代发工资、消费信贷扣款、代缴费等结算业务的个人结算账户不得销户。个人结算账户如为国债托管账户、开放式基金交易账户、第三方存管交易账户的资金账户，不得在服务账户销户前关闭资金账户。如因注销资金账户造成红利资金、赎回资金、到期返还资金无法入账，乙方自行承担责任。 </div>
+        <div>（二）对于一年内未发生收付活动且账户余额为零的个人银行账户，不需另行通知，甲方有权终止提供服务并予以销户。甲方向乙方付息、收取账户管理费用等不属于该条所述“收付活动”。储蓄国债账户连续5年余额为零，甲方有权予以注销。</div>
+        <div>（三）乙方违反本协议或其他甲方相关规章制度或存在恶意操作、诋毁、损害甲方声誉、恶意攻击甲方电子银行系统等行为，或者乙方涉嫌从事洗钱、恐怖融资或其他违法犯罪行为，甲方有权依据其认定的正当理由或风险控制等相关因素，中止或终止本协议及提供相关服务，并保留追究乙方责任的权利。协议终止并不意味着终止前所发生的未完成交易指令的撤销，也不能消除因终止前所发生的交易所带来的任何法律后果。 </div>
+        <div>（四）乙方先前提交的身份证件或身份证明文件过期的，没有在合理期限内更新且没有提出合理理由的，甲方有权中止为乙方办理业务。</div>
+        <div>第十一条 信息保密</div>
+        <div>（一）甲方依法保障乙方的资金安全，并依法为乙方的申请信息和账户资料保密，除国家法律另有规定外，甲方有权拒绝任何单位或个人查询、冻结、扣划。</div>
+        <div>（二）在本合约履行过程中，乙方向甲方提供的甲方不能从公共渠道取得的有关乙方的信息，均构成甲方的保密信息，甲方除以下情况，不得向任何第三方披露或许可使用该保密信息：</div>
+        <div>1、为履行本合约项下规定的义务之目的。</div>
+        <div>2、经客户同意或授权的。</div>
+        <div>3、甲方根据中国法律或其它适用法律法规规定有义务进行披露的情形，或根据司法、行政机构等有权机构要求的。</div>
+        <div>4、出于公共利益的。</div>
+        <div>5、甲方出于为乙方提供更好服务之目的，与承担保密义务之第三方开展服务合作的。</div>
+        <div>6、双方在其他协议中另有约定的。</div>
+        <div>第十二条 业务变更</div>
+        <div>甲方具有对银行系统进行升级、改造的权利。因甲方对银行系统进行升级、改造而引起的服务取消、暂停或者客户账号、服务内容、项目、方式等变化，或根据业务发展需要修改本协议和其他甲方相关章程、业务规则、业务规定，甲方将采取适当方式提前公告（一般通过营业网点或银行电子渠道进行公告），不再逐一通知乙方，若乙方拒绝此修改，应在公告规定的合理时间内注销甲方相关银行服务，若乙方在公告的业务变更或协议修改生效日期后仍继续使用相关服务，即视为乙方接纳该变更或修订。 </div>
+        <div>第十三条 争议解决：双方在履行本协议过程中，如发生争议、应协商解决。协商解决不成的，任何一方均可向甲方所在地人民法院提起诉讼。</div>
+        <div>第十四条 法律适用条款</div>
+        <div>本协议的成立、生效、履行和解释，均适用中华人民共和国法律，法律无明文规定的，可适用通行的金融惯例。</div>
+        <div>本协议是甲方的其他既有协议和约定的补充而非替代文件，如本协议与其他既有协议和约定有冲突，涉及前述业务内容的，应以本协议为准。</div>
+        <div>甲方发布并不时更新的相关业务章程、业务规则、业务规定均为本协议的有效组成部分。</div>
+        <div>乙方所填具的书面申请资料及使用甲方服务所签署的相关协议、进行的行为确认，均为本协议不可分割的一部分，具有同等法律效力。</div>
+        <div>第十五条 因不可抗力事件对本协议项下的交易造成的损失，按照法律有关规定处理。</div>
+        <div>第十六条 本协议自甲乙双方签章之日起生效，网上银行投资服务协议等相关协议自乙方在甲方提供的网上银行系统中完成注册之日起生效。本协议生效后，本协议的任何条款如因法律原因而被确认无效，都不影响本协议其他条款的效力。本协议有效期为一年。在有效期满前30天，如任何一方未向对方提出终止协议的要求，本协议自动展期一年。上述展期不受次数限制。本协议一式两份，甲乙双方各执一份，具有同等法律效力。 </div>
+        <div>第十七条 甲乙双方已就本协议条款进行了充分的沟通，甲方已向乙方就本协议内容进行了全面、准确的解释和说明，乙方完全了解本协议内容并自愿遵照执行上述约定。</div></td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+<br>
+<table border="0"  width="100%"  style="font-size: 12pt;table-layout:fixed;" >
+  <tr>
+    <td width="35%">甲 方（公章）</td>
+    <td width="30%"></td>
+    <td>乙  方（公章）</td>
+  </tr>
+  <tr>
+    <td> 
+        法定代表人（负责人）<br/>或者授权代理人（签字）：
+        <img id="xss_20"
+            src="data:image/gif;base64,R0lGODlhhwBIAJECAL6+vtHR0f///wAAACH5BAEAAAIALAAAAACHAEgAAAL/jI+py+0Po5y02ouz3rz7Dx7CSJbmiabqyrbuC6NLTNf2jddKzvf+r9oBh8TiS2hMKo3IpfOJa0KnVJa0is0Krtruk+sNMxPi8hJsTufQ6jaN7Y634PK6jGzPu+j6PL9f9wcYJzjYVmiYhphYtngCAMkDUDOJEklzCeRokolTCdNZEuoyyrPJaRnz+dL5uSrwahnbcyr6WJoyuwLJywvb28sCPKw7hyc5THmbOxLryqqCu3ecU3xLTBz9TLIqza3rbYzgYw1t3jw5Wo4bLi7S81qeSor6+yhszylvRQ2KDYyJnixYqr6J2sdvnLJdC+dp40YqnkFa/c4xu/YvY7FQ7O1yIZymMCBDkST1fUQ3xNG6kfVsacv4KxizjjFU4nvYcqI+f8I00jSh0ucuZ/d2FnXZwle0GzaH4kQKkSXBgz3zXdRR8Ym6o0tRepXlytrJEovAQTV6dqrTZlFZiWWaVWorqstysk0aday3sSQQSdSplm7afUTTonX4Jq7HnK1mZcsG1ifAlzBtCNra9QZfzZvdGWCUqBZoLKJHUyltGgrq1E5Ws1bi+vWYkLIJKa4tJjZuTbd3d9HtmyLt4I16E68C/Djc4cp/G2/+5Tn0M9KnJ0lu/Uj17ERmcEceIrz48eTLmz+PPr368gUAADs="
+            onclick="onclickEvent_20(20)"> </td>
+     <td>
+    </td>
+    <td>银行盖章：<br/>或授权代理人（签字）：</td> 
+  </tr>
+</table>
+</body>
+</html>
